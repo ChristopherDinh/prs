@@ -1,0 +1,58 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class=''>
+    <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span>
+      <span><a routerLink='/purchaserequest/create'><img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a></span>
+    </div>
+  </div>
+  <table class="table table-sm" *ngIf='purchaserequest'>
+    <tr>
+      <td>Id</td>
+      <td>{{ purchaserequest.Id}}</td>
+    </tr>
+    <tr>
+      <td>Purchase Request User </td>
+      <td>{{ purchaserequest.User.FirstName + " "+ purchaserequest.User.LastName }}</td>
+    </tr>
+    <tr>
+      <tr>
+        <td>Purchase Request Description</td>
+        <td>{{ purchaserequest.Description }}</td>
+      </tr>
+      <tr>
+        <td>Justification</td>
+        <td>{{ purchaserequest.Justification }}</td>
+      </tr>
+      <tr>
+        <td>DateNeeded</td>
+        <td>{{ purchaserequest.DateNeeded }}</td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{{ purchaserequest.Total }}</td>
+      </tr>
+      <tr>
+        <td>SubmittedDate</td>
+        <td>{{ purchaserequest.SubmittedDate }}</td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{{ purchaserequest.Total }}</td>
+      </tr>
+      <tr>
+        <td>DeliveryMode</td>
+        <td>{{ purchaserequest.DeliveryMode }}</td>
+      </tr>
+      <tr>
+        <td>ReasonForRejection</td>
+        <td>{{ purchaserequest.ReasonForRejection }}</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <a routerLink='/purchaserequest/edit/{{purchaserequest.Id}}' class='btn btn-primary' title='Edit'>Edit</a>
+          <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+        </td>
+      </tr>
+  </table>
+</div>

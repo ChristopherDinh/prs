@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class='lefthalf'>
+  <span class='component-title'>[{{title}}]</span>
+  <span><a routerLink='/purchaserequest/create'>
+  <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a></span>
+</div>
+<p *ngIf='!purchaserequests'>Loading...</p>
+</div>
+<table class="table table-sm" *ngIf='purchaserequests'>
+<tr>
+  <td>ID</td>
+  <td>User Name</td>
+  <td>Description</td>
+  <td>Total</td>
+  <td>Status</td>
+  
+</tr>
+<tr *ngFor='let purchaserequest of purchaserequests'>
+  <td>{{purchaserequest.Id}}</td>
+  <td>{{purchaserequest.UserName}}</td>
+  <td>{{purchaserequest.DeliveryMode}}</td>
+  <td>{{purchaserequest.Total}}</td>
+  <td>{{purchaserequest.Status}}</td>
+ 
+  <td class='actions'><a routerLink='/purchaserequest/detail/{{purchaserequest.Id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+  <a routerLink='/purchaserequest/edit/{{purchaserequest.Id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+  <a routerLink='/purchaserequest/line/{{purchaserequest.Id}}'><img src='assets/lines.png' width='20' height='20' title='Lines'></a></td>
+</tr>
+</table>

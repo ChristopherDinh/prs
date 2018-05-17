@@ -1,0 +1,58 @@
+<app-menu></app-menu>
+<div>
+</div><div class='component-content'>
+  <div>
+    <span class='component-title'>[{{title}}]</span>
+    <span><a routerLink='/purchaserequest/list'>Back to list</a></span>
+  </div>
+  <p *ngIf='!PR'>Loading ...</p>
+  <div *ngIf='PR'>
+    <table class='table table-sm'>
+        <tr>
+            <th>ID:</th>
+            <th>Description:</th>
+            <th>Status:</th>
+            <th>Total:</th>
+        </tr>
+        <tr>
+            <td>{{PR.Id}}</td>
+            <td>{{PR.Description}}</td>
+            <td>{{PR.Status}}</td>
+            <td>{{PR.Total | currency}}</td>
+        </tr>
+    </table>
+    <p></p>
+    <table *ngIf='line' class="table table-sm" >
+      <tr>
+        <span class='component-title'>[Lines]</span>
+        <a routerLink='/prli/create/{{PR.Id}}'>
+            <img src='assets/add-icon.png' width='20' height='20' >
+        </a>
+      </tr>
+      <tr>
+        <th>ID:</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Line Total</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor='let prline of line' >
+        <td>{{prline.Id}}</td>
+        <td *ngIf='prline.Product'>{{prline.Product.Name}}</td>
+        <td>{{prline.Quantity}}</td>
+        <td *ngIf='prline.Product'>{{prline.Product.Price | currency}}</td>
+        <td *ngIf='prline.Product'>{{prline.Product.Price * prline.Quantity | currency}}</td>
+        <td>
+          <a routerLink='/prli/edit/{{prline.Id}}/{{PR.Id}}'>
+            <img width='20' height='20' src='assets/pencil-icon.png'></a>
+          <a routerLink='/purchaserequest/linedel/{{PR.Id}}/{{prline.Id}}'>
+            <img width='20' height='20' src='assets/delete.jpg'></a>
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="line && line.length > 0" class='form-group'>
+      <button (click)='submitForReview()' class='btn btn-primary'>Submit For Review</button>
+    </div>
+  </div>
+</div>

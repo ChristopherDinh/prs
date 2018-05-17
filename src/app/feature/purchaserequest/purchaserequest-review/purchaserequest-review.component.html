@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div class=''>
+    <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span> 
+    </div>
+  </div>
+	<p *ngIf='!requests'>Loading ...</p>
+	<table class='table table-sm' *ngIf='requests'>
+      <tr>
+        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')">Id</a></th>
+        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('UserName')">UserName</a></th>
+        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Description')">Description</a></th>
+        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Status')">Status</a></th>
+        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('Total')">Total</a></th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor='let purchaserequest of requests | sort:sortBy'>
+        <td>{{purchaserequest.Id}}</td>
+        <td>{{purchaserequest.UserName}}</td>
+        <td>{{purchaserequest.Description}}</td>
+        <td>{{purchaserequest.Status}}
+        <td>{{purchaserequest.Total | currency}}
+        <td class='actions'>
+          <a routerLink='/purchaserequest/approve/{{purchaserequest.Id}}'><img src='assets/review.png' width='20' height='20' title='Review'></a>
+        </td>
+      </tr>
+	</table>
+</div>

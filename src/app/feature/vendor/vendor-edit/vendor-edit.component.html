@@ -1,0 +1,48 @@
+<app-menu></app-menu>
+<div class='component-content'>
+  <div>
+    <span class='component-title'>[{{title}}]</span>
+  </div>
+  <p *ngIf='!vendors'>Loading...</p>
+  <div *ngIf='vendor'>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="Code">Code:</label>
+      <input [(ngModel)]='vendor.Code' name='code' type="text" class="form-control col-sm-6" id="code" aria-describedby="codeHelp" placeholder="Code">
+      <small id="codeHelp" class="form-text text-muted col-sm-2">Vendor's Code</small>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="Name">Name:</label>
+      <input [(ngModel)]='vendor.Name' name='name' type="text" class="form-control col-sm-6" id="name" aria-describedby="nameHelp" placeholder="Name">
+      <small id="nameHelp" class="form-text text-muted col-sm-2">Vendor's Name</small>
+    </div><div class="form-group row">
+      <label class='col-form-label col-sm-2' for="Address">Address:</label>
+      <input [(ngModel)]='vendor.Address' name='address' type="text" class="form-control col-sm-6" id="address" aria-describedby="addressHelp" placeholder="Address">
+      <small id="addressHelp" class="form-text text-muted col-sm-2">Vendor's Address</small>
+    </div><div class="form-group row">
+      <label class='col-form-label col-sm-2' for="City">City:</label>
+      <input [(ngModel)]='vendor.City' name='city' type="text" class="form-control col-sm-6" id="city" aria-describedby="cityHelp" placeholder="City">
+      <small id="cityHelp" class="form-text text-muted col-sm-2">Vendor's City</small>
+    </div><div class="form-group row">
+      <label class='col-form-label col-sm-2' for="State">State:</label>
+      <input [(ngModel)]='vendor.State' name='state' type="text" class="form-control col-sm-6" id="state" aria-describedby="stateHelp" placeholder="State">
+      <small id="stateHelp" class="form-text text-muted col-sm-2">Vendor's State</small>
+    </div><div class="form-group row">
+      <label class='col-form-label col-sm-2' for="Zip">Zip:</label>
+      <input [(ngModel)]='vendor.Zip' name='zip' type="text" class="form-control col-sm-6" id="zip" aria-describedby="zipHelp" placeholder="Zip">
+      <small id="zipHelp" class="form-text text-muted col-sm-2">Vendor's Zip</small>
+    </div><div class="form-group row">
+      <label class='col-form-label col-sm-2' for="phoneNumber">Phone Number:</label>
+      <input [(ngModel)]='vendor.PhoneNumber' name='phoneNumber' type="text" class="form-control col-sm-6" id="phoneNumber" aria-describedby="phoneNumberHelp" placeholder="PhoneNumber">
+      <small id="phoneNumberHelp" class="form-text text-muted col-sm-2">Vendor's Phone Number</small>
+    </div><div class="form-group row">
+      <label class='col-form-label col-sm-2' for="Email">Email:</label>
+      <input [(ngModel)]='vendor.Email' name='email' type="text" class="form-control col-sm-6" id="email" aria-describedby="emailHelp" placeholder="Email">
+      <small id="emailHelp" class="form-text text-muted col-sm-2">Vendor's Email</small>
+    </div>
+    
+    <div class='form-group'>
+      <button (click)='change()' class='btn btn-primary'>Update</button>
+    </div>
+
+  </div>
+</div>
